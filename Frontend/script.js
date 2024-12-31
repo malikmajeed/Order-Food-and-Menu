@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   selectOption();
   
-  // Call the function immediately to initialize the options in all cards
+
  
   
   
