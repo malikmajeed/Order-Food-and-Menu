@@ -1,0 +1,366 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+  <title>
+    UET Foodies
+   </title>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const menus = {
+        'Musharaf Cafe': {
+          'Monday': [
+            { name: 'Chicken Biryani', price: 'Rs. 150' },
+            { name: 'Beef Kebab', price: 'Rs. 100' },
+            { name: 'Vegetable Pulao', price: 'Rs. 120' },
+            { name: 'Chicken Karahi', price: 'Rs. 200' },
+            { name: 'Chapati', price: 'Rs. 10' }
+          ],
+          'Tuesday': [
+            { name: 'Mutton Biryani', price: 'Rs. 200' },
+            { name: 'Fish Fry', price: 'Rs. 150' },
+            { name: 'Aloo Gobi', price: 'Rs. 100' },
+            { name: 'Chicken Curry', price: 'Rs. 180' },
+            { name: 'Naan', price: 'Rs. 15' }
+          ],
+          // Add other days...
+        },
+        'Green Chilli': {
+          'Monday': [
+            { name: 'Paneer Tikka', price: 'Rs. 180' },
+            { name: 'Chicken Shawarma', price: 'Rs. 120' },
+            { name: 'Beef Biryani', price: 'Rs. 150' },
+            { name: 'Dal Makhani', price: 'Rs. 100' },
+            { name: 'Garlic Naan', price: 'Rs. 20' }
+          ],
+          'Tuesday': [
+            { name: 'Paneer Butter Masala', price: 'Rs. 200' },
+            { name: 'Chicken Tandoori', price: 'Rs. 150' },
+            { name: 'Beef Korma', price: 'Rs. 180' },
+            { name: 'Chana Masala', price: 'Rs. 90' },
+            { name: 'Butter Naan', price: 'Rs. 25' }
+          ],
+          // Add other days...
+        },
+        // Add other hotels...
+      };
+
+      function updateMenu(hotel, day) {
+        const menuList = document.querySelector(#${hotel.toLowerCase().replace(' ', '-')}-menu);
+        menuList.innerHTML = '';
+        menus[hotel][day].forEach(item => {
+          const li = document.createElement('li');
+          li.className = 'flex justify-between';
+          li.innerHTML = <span>${item.name}</span><span>${item.price}</span>;
+          menuList.appendChild(li);
+        });
+      }
+
+      document.querySelectorAll('select').forEach(select => {
+        select.addEventListener('change', function() {
+          const hotel = this.getAttribute('data-hotel');
+          const day = this.value;
+          updateMenu(hotel, day);
+        });
+      });
+
+      // Initialize menus
+      document.querySelectorAll('select').forEach(select => {
+        const hotel = select.getAttribute('data-hotel');
+        const day = select.value;
+        updateMenu(hotel, day);
+      });
+    });
+  </script>
+ </head>
+ <body class="font-roboto bg-gray-100">
+  <header class="bg-green-600 text-white py-4">
+   <div class="container mx-auto flex justify-between items-center">
+    <h1 class="text-3xl font-bold">
+     UET Foodies
+    </h1>
+    <nav>
+     <ul class="flex space-x-4">
+      <li>
+       <a class="hover:underline" href="#">
+        Home
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="#">
+        About
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="#">
+        Contact
+       </a>
+      </li>
+     </ul>
+    </nav>
+   </div>
+  </header>
+  <main class="container mx-auto py-8">
+   <section class="text-center mb-8">
+    <img alt="A large logo of UET FOODI with vibrant colors and food icons" class="mx-auto mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/rT0fCWiwT8xnOiBJmwCl7e90kRl880y6baRls7UItPHqGy5TA.jpg" width="600"/>
+    <h2 class="text-2xl font-bold">
+     Welcome to UET Foodies
+    </h2>
+    <p class="text-gray-700">
+     Check out the daily menus of your favorite hostels!
+    </p>
+   </section>
+   <section>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+     <!-- Musharaf Cafe -->
+     <div class="bg-red-500 p-6 rounded-lg shadow-lg">
+      <h3 class="text-xl font-bold mb-4 text-white">
+       Musharaf Cafe
+      </h3>
+      <div class="mb-4">
+       <label class="block text-white mb-2" for="musharaf-day">
+        Select Day:
+       </label>
+       <select class="w-full p-2 border border-gray-300 rounded" id="musharaf-day" data-hotel="Musharaf Cafe">
+        <option>
+         Monday
+        </option>
+        <option>
+         Tuesday
+        </option>
+        <option>
+         Wednesday
+        </option>
+        <option>
+         Thursday
+        </option>
+        <option>
+         Friday
+        </option>
+        <option>
+         Saturday
+        </option>
+        <option>
+         Sunday
+        </option>
+       </select>
+      </div>
+      <ul class="space-y-2 text-white" id="musharaf-cafe-menu">
+       <!-- Menu items will be populated here -->
+      </ul>
+     </div>
+     <!-- Green Chilli -->
+     <div class="bg-yellow-500 p-6 rounded-lg shadow-lg">
+      <h3 class="text-xl font-bold mb-4 text-white">
+       Green Chilli
+      </h3>
+      <div class="mb-4">
+       <label class="block text-white mb-2" for="green-chilli-day">
+        Select Day:
+       </label>
+       <select class="w-full p-2 border border-gray-300 rounded" id="green-chilli-day" data-hotel="Green Chilli">
+        <option>
+         Monday
+        </option>
+        <option>
+         Tuesday
+        </option>
+        <option>
+         Wednesday
+        </option>
+        <option>
+         Thursday
+        </option>
+        <option>
+         Friday
+        </option>
+        <option>
+         Saturday
+        </option>
+        <option>
+         Sunday
+        </option>
+       </select>
+      </div>
+      <ul class="space-y-2 text-white" id="green-chilli-menu">
+       <!-- Menu items will be populated here -->
+      </ul>
+     </div>
+     <!-- Mamon Hotel -->
+     <div class="bg-blue-500 p-6 rounded-lg shadow-lg">
+      <h3 class="text-xl font-bold mb-4 text-white">
+       Mamon Hotel
+      </h3>
+      <div class="mb-4">
+       <label class="block text-white mb-2" for="mamon-day">
+        Select Day:
+       </label>
+       <select class="w-full p-2 border border-gray-300 rounded" id="mamon-day" data-hotel="Mamon Hotel">
+        <option>
+         Monday
+        </option>
+        <option>
+         Tuesday
+        </option>
+        <option>
+         Wednesday
+        </option>
+        <option>
+         Thursday
+        </option>
+        <option>
+         Friday
+        </option>
+        <option>
+         Saturday
+        </option>
+        <option>
+         Sunday
+        </option>
+       </select>
+      </div>
+      <ul class="space-y-2 text-white" id="mamon-hotel-menu">
+       <!-- Menu items will be populated here -->
+      </ul>
+     </div>
+     <!-- Zaheer Hotel -->
+     <div class="bg-purple-500 p-6 rounded-lg shadow-lg">
+      <h3 class="text-xl font-bold mb-4 text-white">
+       Zaheer Hotel
+      </h3>
+      <div class="mb-4">
+       <label class="block text-white mb-2" for="zaheer-day">
+        Select Day:
+       </label>
+       <select class="w-full p-2 border border-gray-300 rounded" id="zaheer-day" data-hotel="Zaheer Hotel">
+        <option>
+         Monday
+        </option>
+        <option>
+         Tuesday
+        </option>
+        <option>
+         Wednesday
+        </option>
+        <option>
+         Thursday
+        </option>
+        <option>
+         Friday
+        </option>
+        <option>
+         Saturday
+        </option>
+        <option>
+         Sunday
+        </option>
+       </select>
+      </div>
+      <ul class="space-y-2 text-white" id="zaheer-hotel-menu">
+       <!-- Menu items will be populated here -->
+      </ul>
+     </div>
+     <!-- Al Sudais Hotel -->
+     <div class="bg-green-500 p-6 rounded-lg shadow-lg">
+      <h3 class="text-xl font-bold mb-4 text-white">
+       Al Sudais Hotel
+      </h3>
+      <div class="mb-4">
+       <label class="block text-white mb-2" for="al-sudais-day">
+        Select Day:
+       </label>
+       <select class="w-full p-2 border border-gray-300 rounded" id="al-sudais-day" data-hotel="Al Sudais Hotel">
+        <option>
+         Monday
+        </option>
+        <option>
+         Tuesday
+        </option>
+        <option>
+         Wednesday
+        </option>
+        <option>
+         Thursday
+        </option>
+        <option>
+         Friday
+        </option>
+        <option>
+         Saturday
+        </option>
+        <option>
+         Sunday
+        </option>
+       </select>
+      </div>
+      <ul class="space-y-2 text-white" id="al-sudais-hotel-menu">
+       <!-- Menu items will be populated here -->
+      </ul>
+     </div>
+     <!-- Palestine Cafe -->
+     <div class="bg-pink-500 p-6 rounded-lg shadow-lg">
+      <h3 class="text-xl font-bold mb-4 text-white">
+       Palestine Cafe
+      </h3>
+      <div class="mb-4">
+       <label class="block text-white mb-2" for="palestine-day">
+        Select Day:
+       </label>
+       <select class="w-full p-2 border border-gray-300 rounded" id="palestine-day" data-hotel="Palestine Cafe">
+        <option>
+         Monday
+        </option>
+        <option>
+         Tuesday
+        </option>
+        <option>
+         Wednesday
+        </option>
+        <option>
+         Thursday
+        </option>
+        <option>
+         Friday
+        </option>
+        <option>
+         Saturday
+        </option>
+        <option>
+         Sunday
+        </option>
+       </select>
+      </div>
+      <ul class="space-y-2 text-white" id="palestine-cafe-menu">
+       <!-- Menu items will be populated here -->
+      </ul>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="bg-green-600 text-white py-4">
+   <div class="container mx-auto text-center">
+    <p>
+     © 2024 UET Foodies. All rights reserved.
+    </p>
+    <p>
+     Email: contact@UETFoodies.com
+    </p>
+    <p>
+     Contact: +92 123 4567890
+    </p>
+    <p>
+     Location: University of Engineering and Technology, Peshawar, Pakistan
+    </p>
+    <p>
+     <a class="hover:underline" href="#">
+      Legal Policy
+     </a>
+    </p>
+   </div>
+  </footer>
+ </body>
+</html>
