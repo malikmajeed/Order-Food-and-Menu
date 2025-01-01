@@ -1,38 +1,35 @@
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <link rel="stylesheet" href="styles.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
   <title>
     UET Foodies
   </title>
-
 </head>
 
-<body class="font-roboto bg-gray-100">
-  <header class="bg-green-600 text-white py-4">
-    <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-3xl font-bold">
+<body style="font-family: Roboto, sans-serif; background-color: #f7fafc;">
+  <header style="background-color: #38a169; color: white; padding: 1rem;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+      <h1 style="font-size: 1.875rem; font-weight: bold;">
         UET Foodies
       </h1>
       <nav>
-        <ul class="flex space-x-4">
+        <ul style="display: flex; gap: 1rem; list-style: none; margin: 0; padding: 0;">
           <li>
-            <a class="hover:underline" href="#">
+            <a style="color: white; text-decoration: none;" href="#">
               Home
             </a>
           </li>
           <li>
-            <a class="hover:underline" href="#">
+            <a style="color: white; text-decoration: none;" href="#">
               About
             </a>
           </li>
           <li>
-            <a class="hover:underline" href="#">
+            <a style="color: white; text-decoration: none;" href="#">
               Contact
             </a>
           </li>
@@ -40,112 +37,38 @@
       </nav>
     </div>
   </header>
-  <main class="container mx-auto py-8">
-    <section class="text-center mb-8">
-      <img alt="A large logo of UET FOODI with vibrant colors and food icons" class="mx-auto mb-4" height="200"
-        src="https://storage.googleapis.com/a1aa/image/rT0fCWiwT8xnOiBJmwCl7e90kRl880y6baRls7UItPHqGy5TA.jpg"
-        width="600" />
-      <h2 class="text-2xl font-bold">
+  <main style="max-width: 1200px; margin: 2rem auto; padding: 0 1rem;">
+    <section style="text-align: center; margin-bottom: 2rem;">
+      <img alt="A large logo of UET FOODI with vibrant colors and food icons" style="display: block; margin: 0 auto 1rem; height: 200px; width: 600px;" src="https://storage.googleapis.com/a1aa/image/rT0fCWiwT8xnOiBJmwCl7e90kRl880y6baRls7UItPHqGy5TA.jpg" />
+      <h2 style="font-size: 1.5rem; font-weight: bold;">
         Welcome to UET Foodies
       </h2>
-      <p class="text-gray-700">
+      <p style="color: #4a5568;">
         Check out the daily menus of your favorite hostels!
       </p>
-      <div class="select-day">
-      <label class="block text-white mb-2" for="hotel-day">
-        Select Day:
-      </label>
-      <select class="w-full p-2 border border-gray-300 rounded" data-hotel="Hotel">
-        <option>Monday</option>
-        <option>Tuesday</option>
-        <option>Wednesday</option>
-        <option>Thursday</option>
-        <option>Friday</option>
-        <option>Saturday</option>
-        <option>Sunday</option>
-      </select>
+      <div>
+        <label style="display: block; color: white; margin-bottom: 0.5rem;" for="hotel-day">
+          Select Day:
+        </label>
+        <select style="width: 100%; padding: 0.5rem; border: 1px solid #d2d6dc; border-radius: 0.25rem;">
+          <option>Monday</option>
+          <option>Tuesday</option>
+          <option>Wednesday</option>
+          <option>Thursday</option>
+          <option>Friday</option>
+          <option>Saturday</option>
+          <option>Sunday</option>
+        </select>
+      </div>
     </section>
-  </div>
     <section>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Musharaf Cafe -->
-        <div class="bg-red-500 p-6 rounded-lg shadow-lg">
-          <h3 class="text-xl font-bold mb-4 text-white">
-            Musharaf Cafe
-          </h3>
-          <div class="mb-4 hotel-option">
-          
-          </div>
-          <ul class="space-y-2 text-white" id="musharaf-cafe-menu">
-            <!-- Menu items will be populated here -->
-          </ul>
-        </div>
-        <!-- Green Chilli -->
-        <div class="bg-yellow-500 p-6 rounded-lg shadow-lg">
-          <h3 class="text-xl font-bold mb-4 text-white">
-            Green Chilli
-          </h3>
-          <div class="mb-4 hotel-option">
-           
-          </div>
-          <ul class="space-y-2 text-white" id="green-chilli-menu">
-            <!-- Menu items will be populated here -->
-          </ul>
-        </div>
-        <!-- Mamon Hotel -->
-        <div class="bg-blue-500 p-6 rounded-lg shadow-lg">
-          <h3 class="text-xl font-bold mb-4 text-white">
-            Mamon Hotel
-          </h3>
-          <div class="mb-4 hotel-option">
-           
-          </div>
-          <ul class="space-y-2 text-white" id="mamon-hotel-menu">
-            <!-- Menu items will be populated here -->
-          </ul>
-        </div>
-        <!-- Zaheer Hotel -->
-        <div class="bg-purple-500 p-6 rounded-lg shadow-lg">
-          <h3 class="text-xl font-bold mb-4 text-white">
-            Zaheer Hotel
-          </h3>
-          <div class="mb-4 hotel-option">
-            
-            </select>
-          </div>
-          <ul class="space-y-2 text-white" id="zaheer-hotel-menu">
-            <!-- Menu items will be populated here -->
-          </ul>
-        </div>
-        <!-- Al Sudais Hotel -->
-        <div class="bg-green-500 p-6 rounded-lg shadow-lg">
-          <h3 class="text-xl font-bold mb-4 text-white">
-            Al Sudais Hotel
-          </h3>
-          <div class="mb-4 hotel-option">
-            
-          </div>
-          <ul class="space-y-2 text-white" id="al-sudais-hotel-menu">
-            <!-- Menu items will be populated here -->
-          </ul>
-        </div>
-        <!-- Palestine Cafe -->
-        <div class="bg-pink-500 p-6 rounded-lg shadow-lg">
-          <h3 class="text-xl font-bold mb-4 text-white">
-            Palestine Cafe
-          </h3>
-          <div class="mb-4 hotel-option">
-            
-          </div>
-          <ul class="space-y-2 text-white" id="palestine-cafe-menu">
-            <!-- Menu items will be populated here -->
-          </ul>
-        </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;" id="hotels">
+        <!-- Hotel data will be dynamically populated here -->
       </div>
     </section>
   </main>
-  <footer class="bg-green-600 text-white py-4">
-    <div class="container mx-auto text-center">
+  <footer style="background-color: #38a169; color: white; padding: 1rem; text-align: center;">
+    <div style="max-width: 1200px; margin: 0 auto;">
       <p>
         © 2024 UET Foodies. All rights reserved.
       </p>
@@ -159,15 +82,15 @@
         Location: University of Engineering and Technology, Peshawar, Pakistan
       </p>
       <p>
-        <a class="hover:underline" href="#">
+        <a style="color: white; text-decoration: none;" href="#">
           Legal Policy
         </a>
       </p>
     </div>
   </footer>
 
-
   <script src="./script.js"></script>
+  <script src="./database.js"></script>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-let axios =require('axios');
+
 
 let foods = [];
 let Hotels = [];
@@ -43,11 +43,13 @@ function createHotelSection(Hotels) {
     const hotelDiv = document.createElement('div');
     hotelDiv.classList.add('bg-red-500', 'p-6', 'rounded-lg', 'shadow-lg');
     hotelDiv.innerHTML = `
-      <h3 class="text-xl font-bold mb-4 text-white">${hotel.name}</h3>
+      <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem; color: white;">
+      ${hotel.name}</h3>
       <p>${hotel.contact}</p>
-      <ul class="space-y-2 text-white">
+      <ul style="margin-bottom: 0.5rem; list-style: none; color: white;">
         <!-- Menu items will be populated here -->
       </ul>
+
     `;
     newSection.appendChild(hotelDiv);
   });
