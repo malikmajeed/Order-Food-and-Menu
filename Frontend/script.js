@@ -63,38 +63,6 @@ document.addEventListener('DOMContentLoaded', function () {
   
 
 
-
-  // adding select option using javascript instead of html
-  const hotels = document.getElementsByClassName('hotel-option'); // Get all hotel cards
-
-  function selectOption() {
-    if (hotels.length > 0) { // Check if any elements were found
-      for (let hotel of hotels) {
-        hotel.innerHTML = `
-          <label class="block text-white mb-2" for="hotel-day">
-            Select Day:
-          </label>
-          <select class="w-full p-2 border border-gray-300 rounded" data-hotel="Hotel">
-            <option>Monday</option>
-            <option>Tuesday</option>
-            <option>Wednesday</option>
-            <option>Thursday</option>
-            <option>Friday</option>
-            <option>Saturday</option>
-            <option>Sunday</option>
-          </select>
-        `;
-      }
-    } else {
-      console.error("No elements found with the class name 'hotel-option'.");
-    }
-
-    
-  }
-
-  selectOption();
-  
-
  
   
   
